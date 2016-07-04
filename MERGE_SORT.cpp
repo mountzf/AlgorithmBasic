@@ -1,6 +1,6 @@
 #include<iostream>
 #include<cmath>
-//#define INT_MAX 9999//~(1<<(sizeof(int)*8-1))
+#define INT_MAX 9999//~(1<<(sizeof(int)*8-1))
 using namespace std;
 
 void MERGE(int *array, int p, int q, int r)
@@ -8,19 +8,18 @@ void MERGE(int *array, int p, int q, int r)
     int n1=q-p+1;
     int n2=r-q;
     int *L=new int[n1+1];
-	int *R=new int[n2+1];
+    int *R=new int[n2+1];
     for(int i=0;i!=n1;++i)
     {
-		L[i]=*(array+p+i);
+	L[i]=*(array+p+i);
     }
-    for(i=0;i!=n2;++i)
+    for(int i=0;i!=n2;++i)
     {
-		R[i]=*(array+q+1+i);
+	R[i]=*(array+q+1+i);
     }
     L[n1]=INT_MAX;
     R[n2]=INT_MAX;
-	i=0;
-    for(int k=p, j=0;k!=r+1;++k)
+    for(int k=p,i=0,j=0;k!=r+1;++k)
     {
 		if(L[i]<=R[j])
 		{
